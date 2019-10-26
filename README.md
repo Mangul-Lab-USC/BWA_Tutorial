@@ -11,15 +11,15 @@ Make install
 cd ..
 
 2. Create Reference Index:
-bwa/bwa index reference.fa
+bwa/bwa index -p HIV_ref HIV_RNA_Reference_Genome.fa
 
 3. Align Reads to Reference Genome:
-bwa/bwa mem reference.fa sequences.fa > alignments.sam
+bwa/bwa mem HIV_ref human_sample_RNA.fa > alignments.sam
+
 
 4. Convert Sam file to Bam file:
 samtools/samtools view -S -b alignments.sam > alignments.bam
 
 5. View alignments that matched to reference sequence:
 samtools/samtools view alignments.bam
-samtools/samtools view –F 4 aligments.bam
 
